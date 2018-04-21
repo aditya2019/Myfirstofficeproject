@@ -1,0 +1,110 @@
+<!-- card code start -->
+<div class="container upperspace">
+  <div class="col-md-11 col-sm-11 mx-auto">
+    <div class="row">
+      <div class="col-md-3 col-sm-3" *ngFor="let song of songs">
+        <!-- card -->
+        <div class="card" >
+          <img class="img-fluid" [attr.src]="ImagePathget+song.image_path" alt="Card image cap">
+          <div class="card-body">
+            <h6 class="card-title">
+              <!-- printing song name -->
+            <strong>
+            {{song.songname}}
+            </strong>
+            <p>
+              <!-- printing song rating-->
+              <span class="text-align-right"><strong> Ratring</strong>&nbsp;
+                {{song.rating}} -
+              </span><span class="fa fa-star checked"></span>
+            </p></h6>
+            <!--  call from mymusic component -->
+            <div *ngIf="flag === 'mysong'" >
+              <!-- delete button  -->
+              <button type="button"  class="btn btn-primary btn-xs" (click)="deleteSong(song.id)">Delete</button>
+              <!-- download putton -->
+              <button type="button" class="btn btn-primary btn-xs" target="_blank" (click)="downloadsong(song.song_path)">
+              Download
+              </button>
+            </div>
+            <!--  calling from top song component -->
+            <div *ngIf="flag === 'songlist'" class="buttonaline" >
+              <!-- add to mymusic button -->
+              <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#mycount" (click)="addToMymusic(song)">Add</button>
+              <!-- get details button  -->
+              <button  #modalBtn type="button" class="btn btn-primary btn-hide" (click)="setSong(song)" data-toggle="modal" data-target="#movieModal">
+              Details
+              </button>
+            </div>
+          </div>
+          <audio controls controlsList="nodownload">
+            <source [attr.src]="SongPathget+song.song_path" type="audio/mpeg">
+          </audio>
+        </div>
+        <!-- card close -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Button trigger modal -->
+<!-- how many song you have added display now -->
+<div class="container">
+  <div class="modal fade" id="mycount" role="dialog">
+    <div class="modal-dialog modalcolor">
+      <!-- Modal content-->
+      <div class="modal-content modalcolor">
+        <div class="modal-body modalcolor">
+          <p class="message"><strong>You have Added {{count.length}} Songs</strong></p>
+        </div>
+        <div class="modal-footer">
+          <!-- close button here -->
+          <button type="button" class="btn btn-default mx-auto" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal to show song details -->
+<div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="movieModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title modifyheading" id="movieModalLabel"><strong>Song Details</strong></p>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 col-sm-5">
+            <img class="img-fluid" [attr.src]="ImagePathget+currentsong.image_path" alt="Card image cap">
+          </div>
+          <div class="col-md-7 col-sm-7">
+            <div class="modal-body" >
+              <!--  show song name-->
+              <p class="card-text heading"><strong>Song Name-:&nbsp;</strong>{{currentsong.songname}}</p>
+              <!--  show the singername name -->
+              <p class="card-text heading"><strong>Singer Name-:&nbsp;</strong>{{currentsong.singername}}</p>
+              <!--  show the music director -->
+              <p class="card-text heading"><strong>Director-:&nbsp;</strong>{{currentsong.musicdirector}}</p>
+              <!--  show the song rating-->
+              <p class="card-text heading"><strong>Rating-:&nbsp;</strong>{{currentsong.rating}}&nbsp;<i class="fa fa-star"></i></p>
+              <!--  show the song language-->
+              <p class="card-text heading"><strong>Language -:&nbsp;</strong>{{currentsong.language}}</p>
+              <!--  show the year of song-->
+              <p class="card-text heading"><strong>Year:&nbsp;</strong>{{currentsong.year}}</p>
+              <!--  show the deuration of song -->
+              <p class="card-text heading"><strong>Duration:&nbsp;</strong>{{currentsong.duration}}</p>
+              <!--  show the song type -->
+              <p class="card-text heading"><strong>Type:&nbsp;</strong>{{currentsong.type}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- back button to close modal details here -->
+        <button type="button" class="btn btn-primary"  data-dismiss="modal" aria-label="Close">
+        Back
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal ends here -->

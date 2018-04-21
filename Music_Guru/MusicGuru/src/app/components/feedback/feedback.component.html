@@ -1,0 +1,34 @@
+<!-- feedback form to get user feedback about website -->
+<section id="contact" class="content-section text-center">
+  <div class="contact-section">
+    <div class="container">
+      <h2>Feedback</h2>
+      <!-- message after user given feedback -->
+      <div class="alert" *ngIf="correct === 'yes'">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"></span>
+        <strong>Thanks ! for your feedback</strong>
+      </div>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <form class="form-horizontal">
+            <label for="exampleInputText">Feedback</label>
+            <br>
+            <!-- selector given option for rating -->
+            <select class="selectpicker" class="btn btn-default" name="rating" [(ngModel)]="feedbackData.rating">
+              <option>Good</option>
+              <option>Verygood</option>
+              <option>Bad</option>
+            </select>
+            <hr>
+            <!-- user message about website -->
+            <div class="form-group ">
+              <label for="exampleInputText" >Your Message</label>
+              <textarea  class="form-control" name="message" [(ngModel)]="feedbackData.message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default" (click)="feedbackSubmit(feedbackData)">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

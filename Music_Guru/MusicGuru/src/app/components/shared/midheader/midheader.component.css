@@ -1,0 +1,24 @@
+/* using media query on screen 424  for mid navbar size*/
+@media (min-width: 401px) and (max-width: 500px){
+  .resizenav
+  {
+    height: 20px;
+  }
+  .space
+  {
+    padding: 10px;
+  }
+}
+/* using media query on screen 1440  for mid navbar size*/
+@media only screen
+and (min-width : 1224px)
+{
+  .resizenav
+  {
+    height: 20px;
+  }
+  .space
+  {
+    padding: 10px;
+  }
+}

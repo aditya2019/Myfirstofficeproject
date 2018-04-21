@@ -1,0 +1,38 @@
+<!-- contact form to update user details into monogo db -->
+<section id="contact" class="content-section text-center">
+  <div class="contact-section">
+    <div class="container">
+      <h2>Contact us</h2>
+      <!-- show message on submit  -->
+      <div class="alert" *ngIf="correct === 'yes'">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"></span>
+        <strong>Thanks sir ! </strong> Our Team will contact you
+      </div>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <!-- taking user details into userData Object -->
+              <label for="exampleInputName">Name</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" name="name" [(ngModel)]="userData.name" aria-describedby="emailHelp" >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input class="form-control" id="exampleInputPassword1"  name="email"  [(ngModel)]="userData.email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail2">Subject</label>
+              <input class="form-control" id="exampleInputPassword1"  name="subject"  [(ngModel)]="userData.subject">
+            </div>
+            <div class="form-group ">
+              <label for="exampleInputText" >Your Message</label>
+              <textarea  class="form-control" name="message" [(ngModel)]="userData.message"></textarea>
+            </div>
+            <!-- passing user data into ts fine via Usercontact method -->
+            <button type="submit" class="btn btn-default" (click)="Usercontact(userData)">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

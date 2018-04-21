@@ -1,0 +1,128 @@
+/* padding from upper heading to card space */
+.upperspace
+{
+  padding: 20px;
+}
+/* modify song headin component  */
+.modifyheading{
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  font-style: oblique;
+}
+.heading{
+  color: black;
+  font-size: 15px;
+  font-style: oblique;
+}
+/* add and delete button aline  */
+.buttonaline{
+  text-align: center;
+}
+/* message which show after add to mymusic */
+.message{
+	  text-align: center;
+		-webkit-transition-duration: 0.4s;
+		color: white;
+		font-size: 22px;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Black And White Picture', sans-serif;
+    font-family: 'Fugaz One', cursive;
+}
+.modalcolor{
+	background-color: red;
+}
+
+/* starting of media query  */
+@media (max-width: 576px){
+  h6{
+    text-align: center;
+  }
+
+
+  .card{
+    margin-bottom: 22px;
+  box-shadow: 2px 2px 2px 2px #888888;
+  }
+audio
+{
+   width: 240px;
+ }
+
+}
+
+/* media query on screen 375 */
+
+@media (min-width: 330px) and (max-width: 400px){
+  h6{
+    text-align: center;
+  }
+  .card{
+    margin-bottom: 22px;
+    box-shadow: 2px 2px 2px 2px #888888;
+    }
+audio
+{
+   width: 290px;
+ }
+}
+
+/* media query on screen 425 */
+@media (min-width: 401px) and (max-width: 500px){
+  h6{
+    text-align: center;
+  }
+  img{
+    margin: 15px;
+  }
+  .card{
+    margin:0 auto;
+    margin-bottom: 14px;
+    padding: 6px;
+  box-shadow: 2px 2px 2px 2px #888888;
+  }
+audio
+ {
+   width: 345px;
+ }
+}
+/* media query on sreen 768 */
+@media (min-width: 700px) and (max-width: 800px){
+  h6{
+    text-align: center;
+    }
+  .card{
+    width: 150px;
+    height: 350px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 2px 2px #888888;
+     }
+audio
+{
+   width: 120px;
+ }
+}
+/* media query on screen 1024 */
+@media (min-width: 900px) and (max-width: 1030px)
+{
+  audio
+  {
+     width: 180px;
+   }
+   .card{
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 2px 2px #888888;
+   }
+}
+/* media query on screen 1440 */
+@media only screen
+and (min-width : 1224px)
+{
+  audio
+  {
+     width: 220px;
+   }
+   .card{
+    margin-bottom: 20px;
+   }
+}

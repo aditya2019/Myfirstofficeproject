@@ -1,0 +1,29 @@
+/*css for footer body*/
+#footer {
+ background-color: #7F8C8D;
+ padding: 20px 0;
+ margin-bottom: 0px;
+ margin-top: 3px;
+}
+/*css for ul in footer*/
+#footer ul {
+ padding-left: 0;
+ list-style: none;     /* to not show items point */
+}
+/*css for links in footer*/
+#footer ul a {
+ color: white;
+ font-family: 'Lobster', cursive;
+ font-family: 'Contrail One', cursive;
+}
+h4{
+  font-family: 'Lobster', cursive;
+}
+.address{
+  font-family: 'Lobster', cursive;
+  font-family: 'Contrail One', cursive;
+}
+/*css for social icons*/
+#footer .social {
+ text-align: left;
+}

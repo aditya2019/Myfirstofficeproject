@@ -1,0 +1,62 @@
+
+/*-- heading font color -- */
+.nav-link{
+	color: black;
+	font-size: 1rem;
+}
+
+/*-- heading logo color -- */
+.navbar-brand{
+	font-size: 1.5rem;
+	text-transform:uppercase;
+	font-weight:bold;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/*-- heading items heading color -- */
+.nav-icon{
+	font-family: "Times New Roman", Times, serif;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.nav-icon:hover{
+	background-color:black;
+}
+/* alter messa */
+.message{
+	  text-align: center;
+		-webkit-transition-duration: 0.4s;
+		color: white;
+		font-size: 22px;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Black And White Picture', sans-serif;
+    font-family: 'Fugaz One', cursive;
+
+}
+.modalcolor{
+	background-color: red;
+
+}
+/* button */
+.button {
+    background-color: red; /* Green */
+    border: none;
+    color: white;
+    padding: 4px 17px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+/* button for login and Mymusic section  */
+.button1 {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}

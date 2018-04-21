@@ -1,0 +1,52 @@
+<!-- Admin form to update song into monogo db -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    class
+    <form class="contact">
+      <h3>Song Update in Database</h3>
+      <h4>* All fields are Mandatory</h4>
+      <fieldset>
+    <!-- taking data into (adminData) object -->
+        <input placeholder="Enter Song name" [(ngModel)]="adminData.songname" type="text" name="songname" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Enter Year " [(ngModel)]="adminData.year" type="text" name="year" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Enter Singername" [(ngModel)]="adminData.singername" type="text" name="singername" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Enter Musicdirector" [(ngModel)]="adminData.musicdirector" type="text" name="musicdirector" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Enter Language" [(ngModel)]="adminData.language" type="text" name="language" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Enter Rating of song" [(ngModel)]="adminData.rating" type="text" name="rating" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Enter duration of song" [(ngModel)]="adminData.duration" type="text" name="duration" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Enter Song type" [(ngModel)]="adminData.type" type="text" name="type" required>
+      </fieldset>
+      <fieldset>
+        <!-- button to upload song image -->
+        <h4>Upload Song Image</h4>
+        <input type="file" (change)=onImgSelected($event) >
+        <button class="submit" (click)="uploadImg()">upload</button>
+      </fieldset>
+      <fieldset>
+        <!-- button to upload song -->
+        <h4>Upload Song </h4>
+        <input type="file" (change)=onSongSelected($event) >
+        <button class="submit" (click)="uploadSong()">upload</button>
+      </fieldset>
+      <fieldset>
+        <!-- onsubmit method to push data in db-->
+        <button name="submit" type="submit"  id="submit" (click)="onSubmit(adminData)">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+</div>

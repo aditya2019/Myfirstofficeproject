@@ -1,0 +1,45 @@
+<!-- alert message show  -->
+<div class="alert" *ngIf="message === 'yes'">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+</div>
+<!-- staring of navbar section  -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- website logo  -->
+  <a class="navbar-brand" style="color:#90EE90;">Music Guru</a>
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <!-- <a type="button" class="nav-link" routerLink="/login">Login</a> -->
+        <button class="button button2" routerLink="/login">Login</button>
+      </li>
+      <li class="nav-item">
+        <!-- showing login message if user is not login  -->
+        <button class="button button2" data-toggle="modal" data-target="#myModal">Mymusic</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- modal open if user is not login  -->
+<div class="container">
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modalcolor">
+      <!-- Modal content-->
+      <div class="modal-content modalcolor">
+        <div class="modal-body modalcolor">
+          <p class="message"><strong>You have to login </strong></p>
+        </div>
+        <div class="modal-footer">
+          <!-- go to login page -->
+          <button type="button" class="btn btn-default" data-dismiss="modal" routerLink="/login">Login</button>
+          <!-- close the modal first -->
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
