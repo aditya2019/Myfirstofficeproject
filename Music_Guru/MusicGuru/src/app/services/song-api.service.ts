@@ -42,12 +42,16 @@ getAllSong()
       (error: any)=>this.handleError(error));
   }
 // url to delete song from mymusic collection
-  deleteSong(songId)
-  {
-    return this.http.delete(AppConfig.songdelete+'/'+songId)
-  .map(data => data.json(),
+
+  deletesong(songId) {
+    console.log("this is song id "+songId);
+    return this.http.delete(AppConfig.songdelete+songId)
+    .map(data => data.json(),
     (error: any)=>this.handleError(error));
   }
+
+
+
 // url hit to download the song
   downloadsong(songname)
   {

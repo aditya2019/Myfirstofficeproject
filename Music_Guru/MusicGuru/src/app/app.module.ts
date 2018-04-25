@@ -20,6 +20,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { CommingsoonComponent } from './components/shared/commingsoon/commingsoon.component';
+import { PlayerComponent } from './components/player/player.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CommingsoonComponent } from './components/shared/commingsoon/commingsoo
     AdminComponent,
     FeedbackComponent,
     ContactusComponent,
-    CommingsoonComponent
+    CommingsoonComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,

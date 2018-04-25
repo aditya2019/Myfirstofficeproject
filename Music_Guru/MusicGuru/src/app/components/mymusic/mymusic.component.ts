@@ -24,7 +24,7 @@ this.getAllMySong();
 getAllMySong(){
 this.songApiService.getAllMySong().subscribe((res) =>{
 this.mysong = res;
-console.log(this.mysong+"Testing");
+console.log(res+"Testing the data noewww");
 },(error:any)=>{
 console.log(error);
 })

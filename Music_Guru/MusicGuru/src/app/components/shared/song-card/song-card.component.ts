@@ -19,7 +19,20 @@ public ImagePathget=AppConfig.urlImgget;
 public SongPathget=AppConfig.urlsongget;
 public downlaodUrl=AppConfig.downlaodUrl;
 public currentsong : any={};
-public deletesongid : any={};
+public songdelete : any={};
+public playsongvalue : any={};
+
+
+public convertedString : string;
+
+public ss : String="";
+
+public final : string="";
+
+public print : string="";
+
+public iit: string="";
+
 constructor(
 private songApiService: SongApiService,
 private http:Http,
@@ -30,7 +43,20 @@ ngOnInit() {
 // set current song on modal
 setSong(song){
 this.currentsong=song;
-// console.log("ddlele "+ this.currentsong.id);
+
+}
+// set current song
+playSong(song)
+{
+  this.playsongvalue=song;
+  this.print = JSON.stringify(song.song_path);
+  console.log("vauel is  "+JSON.stringify(song.song_path));
+ console.log("type of "+this.print);
+ this.iit=this.print.replace(/['"]+/g, '');
+ // let kls=this.print.split(" ");
+ // console.log("ye lo"+this.print.replace(/['"]+/g, ''));
+this.final=this.SongPathget+this.iit;
+
 }
 // calling updateMymusic method of service to add song into mymusic
 addToMymusic(song) {
@@ -48,15 +74,19 @@ this.count=res;
 },(error:any)=>{
 })
 }
+
+
 // delete song from mymusic database
-deleteSong(song)
+deletesong(songid)
 {
-this.deletesongid=song;
-console.log("delete it now "+ this.deletesongid.id);
-this.songApiService.deleteSong(this.deletesongid.id).subscribe(data=>{
-},(error:any)=>{
-})
+  var x=new String(songid);
+  this.songApiService.deletesong(x).subscribe((res)=>{
+  },(error:any)=>{
+  })
 }
+
+
+
 // calling url to download curront song
 downloadsong(songname)
 {

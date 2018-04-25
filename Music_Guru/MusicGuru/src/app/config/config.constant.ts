@@ -16,7 +16,7 @@ export class AppConfig{
   // url of getting all user selected song from database
   public static getAllMymusic="http://192.168.1.129:8095/mymusic/all";
   // url of delete song from playlist
-  public static songdelete="http://192.168.1.129:8095/mymusic";
+  public static songdelete="http://192.168.1.129:8095/mymusic/";
   // url of download the song
   public static downlaodUrl="http://192.168.1.129:8095/musicguru/download/";
   // url of login page

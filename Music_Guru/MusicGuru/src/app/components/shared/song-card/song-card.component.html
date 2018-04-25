@@ -21,7 +21,9 @@
             <!--  call from mymusic component -->
             <div *ngIf="flag === 'mysong'" >
               <!-- delete button  -->
-              <button type="button"  class="btn btn-primary btn-xs" (click)="deleteSong(song.id)">Delete</button>
+              <button class="btn btn-primary btn-hide" (click)="deletesong(song.id)" >
+              Delete
+              </button>
               <!-- download putton -->
               <button type="button" class="btn btn-primary btn-xs" target="_blank" (click)="downloadsong(song.song_path)">
               Download
@@ -37,9 +39,14 @@
               </button>
             </div>
           </div>
-          <audio controls controlsList="nodownload">
-            <source [attr.src]="SongPathget+song.song_path" type="audio/mpeg">
-          </audio>
+            <!-- <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#myplay" (click)="Songplay(song)">play now</button> -->
+            <button type="button" class="btn btn-demo" data-toggle="modal" (click)="playSong(song)" data-target="#myModalplay" >
+  		     Play
+  		   </button>
+         <audio controls controlsList="nodownload">
+               <source [attr.src]="SongPathget+song.song_path" type="audio/mpeg">
+.              </audio>
+
         </div>
         <!-- card close -->
       </div>
@@ -94,6 +101,10 @@
               <p class="card-text heading"><strong>Duration:&nbsp;</strong>{{currentsong.duration}}</p>
               <!--  show the song type -->
               <p class="card-text heading"><strong>Type:&nbsp;</strong>{{currentsong.type}}</p>
+              <audio controls controlsList="nodownload">
+               <source [attr.src]="SongPathget+currentsong.song_path" type="audio/mpeg">
+.              </audio>
+
             </div>
           </div>
         </div>
@@ -108,3 +119,24 @@
   </div>
 </div>
 <!-- Modal ends here -->
+<!--                  java player is now  -->
+<!-- Modal -->
+<div class="container demo">
+<div class="modal left fade" id="myModalplay" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document" >
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<img class="img-fluid" [attr.src]="ImagePathget+playsongvalue.image_path" alt="Card image cap">
+				</div>
+
+				<div class="modal-body">
+            <p class="card-text heading"><strong>{{playsongvalue.songname}}</strong></p>
+          <audio controls controlsList="nodownload">
+          <source [attr.src]="final" type="audio/mpeg"></audio>
+				</div>
+       {{final}}
+			</div><!-- modal-content -->
+		</div><!-- modal-dialog -->
+	</div><!-- modal -->
+</div>
