@@ -49,7 +49,12 @@ getAllSong()
     .map(data => data.json(),
     (error: any)=>this.handleError(error));
   }
-
+// searching the songs
+searchByName(name){
+	return this.http.get(AppConfig.searchByNameUrl+name, {headers: this.headers})
+	.map(data => data.json(),
+		(error: any)=>this.handleError(error));
+}
 
 
 // url hit to download the song

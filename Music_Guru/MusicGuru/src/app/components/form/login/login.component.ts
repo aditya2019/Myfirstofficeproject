@@ -11,6 +11,7 @@ providers: [SongApiService ]
 })
 
 export class LoginComponent implements OnInit {
+  
 public Useraccess:any={};
 public errorMsg:any={};
 public showError : boolean = false;

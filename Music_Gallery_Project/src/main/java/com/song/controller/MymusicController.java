@@ -50,9 +50,10 @@ public class MymusicController {
 		 }
 		}
 	@RequestMapping(value="/{id}",method=RequestMethod.DELETE,consumes = MediaType.APPLICATION_JSON_VALUE)
-    public  ResponseEntity<Void> delete(@PathVariable ObjectId id){
+    public  ResponseEntity<Void> delete(@PathVariable String id){
       try {
-    	  mymusicrepository.deleteOneById(id);
+    	  mymusicrepository.deleteById(id);
+    	  System.out.println("delete by id");
      return ResponseEntity.noContent().build();
       }
       catch (Exception e) {

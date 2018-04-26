@@ -28,5 +28,7 @@ export class AppConfig{
   // url of feedback data store in database
   public static feedbackurl="http://192.168.1.129:8095/feedbacklog/Userfeedback";
   // url of getting song from playlist data
-  public static getmysong="http://192.168.1.129:8095/mymusic/all"
+  public static getmysong="http://192.168.1.129:8095/mymusic/all";
+  // search the songs
+   public static searchByNameUrl="http://192.168.1.129:8095/musicguru/songs/search/name=";
 }

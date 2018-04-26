@@ -1,11 +1,39 @@
 <!-- card code start -->
+<form class="col-md-6 mx-auto">
+      <div class="input-group mt-5">
+        <input type="text" id="movieTitle" class="form-control"  placeholder="Search song..." name="movieTitle" #name>
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="submit" (click)=search(name.value)> <i class="fa fa-search"></i></button>
+        </span>
+      </div>
+</form>
+
 <div class="container upperspace">
   <div class="col-md-11 col-sm-11 mx-auto">
     <div class="row">
       <div class="col-md-3 col-sm-3" *ngFor="let song of songs">
         <!-- card -->
         <div class="card" >
+          <!-- <div class="view zoom">
+
+             <img [attr.src]="ImagePathget+song.image_path" class="img-fluid " alt="">
+               <div class="mask flex-center">
+        <p class="white-text">Zoom effect</p>
+              </div>
+                  </div> -->
+                  <!-- <div class="zoom">
           <img class="img-fluid" [attr.src]="ImagePathget+song.image_path" alt="Card image cap">
+          <button>click</button>
+                  </div> -->
+
+                  <div class="cont1">
+
+            <img class="image11" [attr.src]="ImagePathget+song.image_path" target="_blank" (click)="set()">
+            
+            </div>
+
+
+
           <div class="card-body">
             <h6 class="card-title">
               <!-- printing song name -->
@@ -40,19 +68,20 @@
             </div>
           </div>
             <!-- <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#myplay" (click)="Songplay(song)">play now</button> -->
-            <button type="button" class="btn btn-demo" data-toggle="modal" (click)="playSong(song)" data-target="#myModalplay" >
+             <button type="button" class="btn btn-primary" data-toggle="modal" (click)="playSong(song)" data-target="#myModalplay" >
   		     Play
   		   </button>
          <audio controls controlsList="nodownload">
                <source [attr.src]="SongPathget+song.song_path" type="audio/mpeg">
+               <!-- <iframe [attr.src]="SongPathget+song.song_path" frameborder=""></iframe> -->
 .              </audio>
-
+         <!-- <iframe [attr.src]="SongPathget+song.song_path" frameborder=""></iframe> -->
         </div>
-        <!-- card close -->
       </div>
     </div>
   </div>
 </div>
+<!-- <button id="postYourAdd" onclick="postYourAdd()">Button</button> -->
 <!-- Button trigger modal -->
 <!-- how many song you have added display now -->
 <div class="container">
@@ -121,8 +150,10 @@
 <!-- Modal ends here -->
 <!--                  java player is now  -->
 <!-- Modal -->
+<!-- <iframe id="forPostyouradd" [attr.src]="ImagePathget+song.image_path" src="about:blank" width="200" height="200" style="background:#ffffff"></iframe> -->
+<!-- card close -->
 <div class="container demo">
-<div class="modal left fade" id="myModalplay" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal left  fade " data-dismiss="modal" id="myModalplay"  >
 		<div class="modal-dialog" role="document" >
 			<div class="modal-content">
 
@@ -131,12 +162,13 @@
 				</div>
 
 				<div class="modal-body">
-            <p class="card-text heading"><strong>{{playsongvalue.songname}}</strong></p>
-          <audio controls controlsList="nodownload">
-          <source [attr.src]="final" type="audio/mpeg"></audio>
+            <p class="card-text heading mx-auto"><strong class="modifytext">{{playsongvalue.songname}}</strong></p>
+          <audio controls controlsList="nodownload" class="modifyaud">
+          <source [attr.src]="SongPathget+playsongvalue.song_path" type="audio/mpeg"></audio>
 				</div>
-       {{final}}
 			</div><!-- modal-content -->
-		</div><!-- modal-dialog -->
-	</div><!-- modal -->
+		</div>
+	</div>
 </div>
+
+<!-- new to connnet  -->

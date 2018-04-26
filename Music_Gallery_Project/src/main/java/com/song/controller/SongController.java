@@ -122,7 +122,13 @@ public class SongController {
 
 	}
 	// //........Close get image
-
+// search the song 
+	// to search venue by name in mongodb database
+		@RequestMapping(value = "/songs/search/name={name}", method = RequestMethod.GET)
+		public ResponseEntity<List<Song>> searchbyName(@PathVariable String name) {
+			return ResponseEntity.ok().body(songrepository.findBysongnameLike(name));
+		}
+		
 	// ......... Api to play song
 	@RequestMapping(value = "/playsong/{id}", method = RequestMethod.GET, produces = MediaType.ALL_VALUE)
 	public void doGet(HttpServletRequest request, HttpServletResponse response,@PathVariable("id") String id) throws ServletException, IOException {

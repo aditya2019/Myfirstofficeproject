@@ -18,27 +18,33 @@ public count : any=[];
 public ImagePathget=AppConfig.urlImgget;
 public SongPathget=AppConfig.urlsongget;
 public downlaodUrl=AppConfig.downlaodUrl;
-public currentsong : any={};
+public currentsong : any=[];
 public songdelete : any={};
 public playsongvalue : any={};
 
+//public getsongname: any=[];
+// public convertedString : string;
+// public ss : String="";
+// public final : string="";
+// public print : string="";
+// public iit: string="";
 
-public convertedString : string;
-
-public ss : String="";
-
-public final : string="";
-
-public print : string="";
-
-public iit: string="";
+public wrong = '';
 
 constructor(
 private songApiService: SongApiService,
 private http:Http,
 private router: Router
 ) { }
+
 ngOnInit() {
+}
+// serching the song
+search(name){
+  this.songApiService.searchByName(name).subscribe((res)=>{
+    this.songs=res;
+  },(error:any)=>{
+  })
 }
 // set current song on modal
 setSong(song){
@@ -48,16 +54,33 @@ this.currentsong=song;
 // set current song
 playSong(song)
 {
-  this.playsongvalue=song;
-  this.print = JSON.stringify(song.song_path);
-  console.log("vauel is  "+JSON.stringify(song.song_path));
- console.log("type of "+this.print);
- this.iit=this.print.replace(/['"]+/g, '');
+    this.playsongvalue=song;
+ //  this.getsongname =JSON.parse(song)
+ //  console.log("dekhna hai kya aya"+this.getsongname);
+ //  this.playsongvalue=song;
+ //  this.print = JSON.stringify(song.song_path);
+ //  console.log("vauel is  "+JSON.stringify(song.song_path));
+ // console.log("type of "+this.print);
+ // this.iit=this.print.replace(/['"]+/g, '');
  // let kls=this.print.split(" ");
  // console.log("ye lo"+this.print.replace(/['"]+/g, ''));
-this.final=this.SongPathget+this.iit;
-
+//this.final=this.SongPathget+this.iit;
+// let audio = new Audio();
+// audio.src = "final";
+// audio.load();
+// audio.play();
 }
+
+//
+// playnowji(song)
+// {
+//   this.getsongname=song.song_path;
+// //   console.log("dekhna hai kya aya"+this.getsongname);
+// //   let audio = new Audio();
+// // audio.src = this.SongPathget+this.getsongname;
+// // audio.load();
+// // audio.play();
+// }
 // calling updateMymusic method of service to add song into mymusic
 addToMymusic(song) {
 this.songApiService.updateMymusic(song).subscribe(data=>{

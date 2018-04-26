@@ -1,4 +1,120 @@
+
 /* padding from upper heading to card space */
+
+/*
+.zoom {
+    padding: 50px;
+    background-color: green;
+    transition: transform .2s;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    /* -webkit-transform: scale(1.5); /* Safari 3-8 */
+    /* transform: scale(1.5);
+}  */
+
+.cont1 {
+
+overflow:hidden;
+
+}
+
+
+.image11 {
+
+-webkit-transition: all 0.7s ease;
+
+transition: all 0.7s ease;
+
+}
+
+.image11:hover {
+
+opacity:0.6;
+
+filter: alpha(opacity=60);
+
+}
+
+ /* .cont2 {
+
+overflow:hidden;
+
+} */
+/*
+.cont2:hover .image2 {
+
+-webkit-transform:scale(1);
+
+transform:scale(1);
+
+}
+
+.image2 {
+
+-webkit-transition: all 0.7s ease;
+
+transition: all 0.7s ease;
+
+border-radius: 15px;
+
+-webkit-transform:scale(1.3);
+
+transform:scale(1.3);
+
+}
+
+.image7 {
+
+-webkit-transition: all 0.7s ease;
+
+transition: all 0.7s ease;
+
+}
+
+.image7:hover {
+
+-webkit-filter: contrast(160%);
+
+} */
+
+.image4 {
+
+ -webkit-transition: all 0.7s ease;
+
+ transition: all 0.7s ease;
+
+}
+
+
+
+.image4:hover {
+
+-webkit-transform:scale(0.7);
+
+transform:scale(0.7);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ___________________________________________________ */
 .upperspace
 {
   padding: 20px;
@@ -129,44 +245,46 @@ and (min-width : 1224px)
 
 /*___________________________css player ______________________________*/
 
-.modal.left .modal-dialog,
-	.modal.right .modal-dialog {
-		position: fixed;
+.modal.left .modal-dialog{
+  position: fixed;
 		margin: auto;
 		width: 200px;
 		height: 50%;
-		-webkit-transform: translate3d(0%, 0, 0);
-		    -ms-transform: translate3d(0%, 0, 0);
-		     -o-transform: translate3d(0%, 0, 0);
-		        transform: translate3d(0%, 0, 0);
+    background-color: rgb(0,0,0); /* Fallback color */
+       background-color: rgba(0,0,0,0.0); /* Black w/ opacity */
 	}
-
+.modal{
+  background-color: rgb(0,0,0); /* Fallback color */
+     background-color: rgba(0,0,0,0.0); /* Black w/ opacity */
+}
 
 /* ----- MODAL STYLE ----- */
-	.modal-content {
-		border-radius: 0;
-		border: none;
-	}
+
 
 	.modal-header {
 		border-bottom-color: black;
 		background-color: #85929E;
 	}
 
+.fade{
+  background: rgba(0,0,0,0.1);
 
-.demo {
-	padding-top: 60px;
-	padding-bottom: 110px;
+    backdrop: "static";
+
 }
-
-.btn-demo {
-	margin: 15px;
-	padding: 10px 15px;
-	border-radius: 0;
-	font-size: 16px;
-	background-color: #FFFFFF;
+.modifytext
+{
+  font-family: 'Lobster', cursive;
+  font-family: 'Contrail One', cursive;
+  margin: auto;
 }
-
-.btn-demo:focus {
-	outline: 0;
+.modal-body
+{
+  padding: 1px;
+  text-align: center;
+}
+.modifyaud
+{
+  padding-top: 10px !important;
+  width: 195px;
 }
