@@ -16,7 +16,10 @@
     /* -webkit-transform: scale(1.5); /* Safari 3-8 */
     /* transform: scale(1.5);
 }  */
-
+.modify
+{
+	background-color: #85929E;
+}
 .cont1 {
 
 overflow:hidden;
@@ -146,7 +149,7 @@ transform:scale(0.7);
     font-family: 'Fugaz One', cursive;
 }
 .modalcolor{
-	background-color: red;
+	background-color: #85929E;
 }
 
 /* starting of media query  */

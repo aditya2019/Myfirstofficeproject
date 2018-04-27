@@ -1,0 +1,12 @@
+package org.aditya.hibernate;
+
+import org.aditya.javabrains.dto.employeedetails;
+
+public class HibernateTest {
+	public static void main(String[] args)
+	{
+		employeedetails emp=new employeedetails();
+		emp.setEmpId("A");
+		emp.getEmpName("Ram");
+	}
+}

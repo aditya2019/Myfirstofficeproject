@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="spring"/>
+<aop-project name="sprinng_progh"/>
+<aop-project name="ImageUpload"/>
+<aop-project name="SpringBootUploadfile"/>
+<aop-project name=" crud"/>
+<aop-project name="moviesapplication_FavouriteMovieApp"/>
+<aop-project name="client"/>
+<aop-project name="imagestore"/>
+<aop-project name="Music_Gallery_Project"/>
+<aop-project name="SpringBootStrapImages"/>
+</aop-reference-model>

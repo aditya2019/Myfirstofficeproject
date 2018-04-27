@@ -1,0 +1,6 @@
+package org.aditya.javabrains.dto;
+
+public class employeedetails {
+	private String empId;
+
+}

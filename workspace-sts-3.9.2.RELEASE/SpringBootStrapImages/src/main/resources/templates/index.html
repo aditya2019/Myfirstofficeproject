@@ -1,0 +1,67 @@
+
+<!DOCTYPE HTML>
+ 
+<html>
+<head>
+	  <title>JQuery Load Image from SpringBoot RestAPI</title>
+	  <meta charset="utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <script src="/js/jquery.js"></script>
+</head>
+<body class="container">
+ 
+<h1 style="text-decoration: underline; color:#283E84">1. Bootstrap Image - SpringBoot ResAPI</h1>
+<div>
+	<div id="loadImageBootstrapStyleDiv">
+		<a href="/api/image">
+	        <img src="/api/image" id="jsaAboutImageId" class="img-rounded img-responsive" alt="JSA-About Image" />
+	        <div class="caption">
+	          <p>JSA-About Image</p>
+	        </div>
+	    </a>
+	</div>
+	<div class="btn-group">
+  		<button id="roundedCornersBtn" type="button" class="btn btn-primary">Rounded Corners</button>
+  		<button id="circleBtn" type="button" class="btn btn-primary">Circle</button>
+  		<button id="thumbnailBtn" type="button" class="btn btn-primary">Thumbnail</button>
+	</div>
+</div>
+<h1 style="text-decoration: underline; color:#283E84">2. Bootstrap Image Gallery</h1>
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="/api/image">
+        <img src="/api/image" class="img-rounded" alt="JSA-About img-rounded" style="width:100%" />
+        <div class="caption">
+          <p>JSA-About img-rounded</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="/api/image">
+        <img src="/api/image" class="img-circle" alt="JSA-About img-circle" style="width:100%" />
+        <div class="caption">
+          <p>JSA-About img-circle</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <a href="/api/image">
+        <img src="/api/image" class="img-thumbnail" alt="JSA-About img-thumbnail" style="width:100%" />
+        <div class="caption">
+          <p>JSA-About img-thumbnail</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+ 
+</body>
+</html>

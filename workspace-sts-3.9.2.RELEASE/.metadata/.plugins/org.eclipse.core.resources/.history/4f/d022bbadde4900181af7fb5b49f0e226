@@ -1,0 +1,5 @@
+package com.song.configue;
+
+public class JwtSecurityConfig {
+
+}

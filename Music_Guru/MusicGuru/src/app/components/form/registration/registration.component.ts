@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SongApiService } from '../../../services/song-api.service';
-
+import alertify from 'alertify.js';
 @Component({
 selector: 'app-registration',
 templateUrl: './registration.component.html',
@@ -14,6 +14,7 @@ public correct = '';
 // service provide into registration form
 constructor(private songApiService: SongApiService) { }
 ngOnInit() {
+   alertify.success("Alertify is working!");
 }
 // calling userdetails method of service with user details via ( Userobj)
 userdetails(Userobj) {

@@ -1,0 +1,5 @@
+package org.aditya.hibernate;
+
+public class HibernateTest {
+	employeedetails emp=new employeedetails();
+}

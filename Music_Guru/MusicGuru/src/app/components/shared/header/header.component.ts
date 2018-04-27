@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
  loginmessage()
  {
   this.message='yes';
+  
  }
 
 

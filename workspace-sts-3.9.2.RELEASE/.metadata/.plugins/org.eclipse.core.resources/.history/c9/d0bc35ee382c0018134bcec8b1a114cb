@@ -1,0 +1,5 @@
+package org.aditya.javabrains.dto;
+
+public class employeedetails {
+
+}
