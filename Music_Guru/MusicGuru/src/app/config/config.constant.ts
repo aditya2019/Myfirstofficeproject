@@ -31,4 +31,6 @@ export class AppConfig{
   public static getmysong="http://192.168.1.129:8095/mymusic/all";
   // search the songs
    public static searchByNameUrl="http://192.168.1.129:8095/musicguru/songs/search/name=";
+   // to authenticate the user for login
+    public static gettokenUrl="http://192.168.1.129:8095/userlog";
 }

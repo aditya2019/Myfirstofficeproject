@@ -1,8 +1,9 @@
-import { Component, OnInit , Input} from '@angular/core';
+import { Component, OnInit , Input, SimpleChange} from '@angular/core';
 import { SongApiService } from '../../../services/song-api.service';
 import { AppConfig }from '../../../config/config.constant';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Router } from '@angular/router';
+// import { ChangeDetectorRef } from "@angular/core"
 
 @Component({
 selector: 'app-song-card',
@@ -30,15 +31,35 @@ public playsongvalue : any={};
 // public iit: string="";
 
 public wrong = '';
-
+private showPlayer: boolean = true;
 constructor(
 private songApiService: SongApiService,
 private http:Http,
-private router: Router
+private router: Router,
+// private ref: ChangeDetectorRef,
 ) { }
 
-ngOnInit() {
-}
+// ngOnInit() {
+// }
+
+  // @Input() fileToPlay:string;
+
+  ngOnInit(){
+    // if (this.playsongvalue != '') {
+    //   this.showPlayer = true;
+    // }
+  }
+
+  // ngOnChanges(changes: {[propKey: string]: SimpleChange}){
+  //   if (changes['playsongvalue'] !== undefined) {
+  //
+  //
+  //    if(changes['playsongvalue'].previousValue !== changes['playsongvalue'].currentValue && changes['playsongvalue'].currentValue !== '') {
+  //     this.showPlayer = false;
+  //     setTimeout(() => this.showPlayer = true, 0);
+  //   }
+  // }
+  // }
 // serching the song
 search(name){
   this.songApiService.searchByName(name).subscribe((res)=>{
@@ -55,6 +76,8 @@ this.currentsong=song;
 playSong(song)
 {
     this.playsongvalue=song;
+     // this.ref.detectChanges();
+     console.log(this.playsongvalue.song_path);
  //  this.getsongname =JSON.parse(song)
  //  console.log("dekhna hai kya aya"+this.getsongname);
  //  this.playsongvalue=song;

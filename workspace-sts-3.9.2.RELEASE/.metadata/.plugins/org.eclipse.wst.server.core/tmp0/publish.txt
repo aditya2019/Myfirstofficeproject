@@ -1,3 +1,0 @@
-#Tomcat publish data
-#Tue Mar 13 13:49:55 IST 2018
-org.eclipse.jst.jee.server\:JSPExample=/home/kls103/Documents/spring tool/sts-bundle/pivotal-tc-server-developer-3.2.8.RELEASE/base-instance/wtpwebapps/JSPExample
