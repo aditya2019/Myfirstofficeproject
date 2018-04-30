@@ -3,6 +3,7 @@ import { SongApiService } from '../../../services/song-api.service';
 import { AppConfig }from '../../../config/config.constant';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Router } from '@angular/router';
+// import alertify from 'alertify.js';
 // import { ChangeDetectorRef } from "@angular/core"
 
 @Component({
@@ -22,6 +23,9 @@ public downlaodUrl=AppConfig.downlaodUrl;
 public currentsong : any=[];
 public songdelete : any={};
 public playsongvalue : any={};
+public s : any={};
+
+public nextsong : any={};
 
 //public getsongname: any=[];
 // public convertedString : string;
@@ -37,6 +41,7 @@ private songApiService: SongApiService,
 private http:Http,
 private router: Router,
 // private ref: ChangeDetectorRef,
+
 ) { }
 
 // ngOnInit() {
@@ -72,12 +77,23 @@ setSong(song){
 this.currentsong=song;
 
 }
+test(song)
+{
+  this.nextsong=song;
+
+  var msg = "<div class='container'><div class='row'><div class='col-md-5 col-sm-5'><img class='img-fluid' src='"+this.ImagePathget+this.nextsong.image_path+"'>" +"<p>thisi sno</p>"+
+            "<h4> this is my name </h4>"+
+            "<audio controls src='"+this.SongPathget+this.nextsong.song_path+"'></audio>" +
+          "<h3 style='color:blue;'>This is HTML</h3>";
+alertify.delay(0).maxLogItems(1).log(msg);
+}
 // set current song
 playSong(song)
 {
     this.playsongvalue=song;
      // this.ref.detectChanges();
      console.log(this.playsongvalue.song_path);
+
  //  this.getsongname =JSON.parse(song)
  //  console.log("dekhna hai kya aya"+this.getsongname);
  //  this.playsongvalue=song;

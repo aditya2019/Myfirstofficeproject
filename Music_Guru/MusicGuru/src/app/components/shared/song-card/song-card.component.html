@@ -56,6 +56,11 @@
              <button type="button" class="btn btn-primary" data-toggle="modal" (click)="playSong(song)" data-target="#myModalplay" >
   		     Play
   		   </button>
+         <!-- alertyfy -->
+         <button type="button" (click)="test(song)" >
+       test
+     </button>
+
          <audio controls controlsList="nodownload">
                <source [attr.src]="SongPathget+song.song_path" type="audio/mpeg">
                <!-- <iframe [attr.src]="SongPathget+song.song_path" frameborder=""></iframe> -->
@@ -137,30 +142,6 @@
 <!-- Modal -->
 <!-- <iframe id="forPostyouradd" [attr.src]="ImagePathget+song.image_path" src="about:blank" width="200" height="200" style="background:#ffffff"></iframe> -->
 <!-- card close -->
-<div class="container demo">
-<div class="modal left  fade " data-dismiss="modal" id="myModalplay"  >
-		<div class="modal-dialog" role="document" >
-			<div class="modal-content">
-        <div *ngIf="showPlayer">
-          <audio controls src={{SongPathget+playsongvalue.song_path}}></audio>
-          <!-- <audio  controls autoplay class="playa" di="audio">
-            <source [src]="SongPathget+playsongvalue.song_path" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio> -->
-        </div>
-				<!-- <div class="modal-header">
-					<img class="img-fluid" [attr.src]="ImagePathget+playsongvalue.image_path" alt="Card image cap">
-				</div>
 
-				<div class="modal-body">
-            <p class="card-text heading mx-auto"><strong class="modifytext">{{playsongvalue.songname}}</strong></p>
-          <audio controls controlsList="nodownload" class="modifyaud">
-          <source [src]="SongPathget+playsongvalue.song_path" type="audio/mpeg"></audio>
-            {{SongPathget+playsongvalue.song_path}}
-        </div> -->
-			</div><!-- modal-content -->
-		</div>
-	</div>
-</div>
 
 <!-- new to connnet  -->

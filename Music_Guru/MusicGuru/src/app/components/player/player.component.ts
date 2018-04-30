@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+
+  constructor(){ }
+
+  ngOnInit(){
   }
 
 
