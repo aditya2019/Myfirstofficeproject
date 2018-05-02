@@ -1,4 +1,7 @@
 /* payer code javasc */
+.alertify-logs > div {
+  overflow: visible;
+}
 
 h1 {
   font-family: 'Open Sans', sans-serif;

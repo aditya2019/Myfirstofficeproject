@@ -124,6 +124,8 @@ public class RegisterController {
 			register.setRole(authenticateUser.getRole());
 			String token = jwtGenerator.generate(register);
 			response.put("token", token);
+			String role= authenticateUser.getRole();
+			response.put("Role",role);
 			return ResponseEntity.ok().body(response);
 		} else {
 			return ResponseEntity.badRequest().build();

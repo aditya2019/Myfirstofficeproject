@@ -18,6 +18,7 @@ public errorMsg:any={};
 public showError : boolean = false;
 public wrong = '';
 public identify :any={};
+  private role:any;
 // service provide into login page
 constructor(private authenticateUserService : AuthenticateUserService,private router: Router) { }
 
@@ -25,18 +26,19 @@ ngOnInit() {
 }
 // calling service loginUser method with value user email and password via( Useraccess)
 login(Useraccess){
-this.authenticateUserService.loginUser(Useraccess).subscribe((res)=>{
-this.identify=res;
+this.authenticateUserService.loginUser(Useraccess).subscribe((response)=>{
+
+this.role=response.json().Role;
+// console.log("role from ts ->  "+this.role);
 // in response if i am getting user - rout it on userselected list else rout it on admin page
-// if(this.identify.ok==='user')
-// {
-// this.router.navigate(['/mymusic']);
-// }
-// else
-// {
-// this.router.navigate(['/admin']);
-// }
-// this.router.navigate(['/mymusic']);
+if(this.role==='user')
+{
+this.router.navigate(['/mymusic']);
+}
+else
+{
+this.router.navigate(['/admin']);
+}
 // this.Useraccess={};
 },(error:any)=>{
 this.errorMsg = JSON.parse(error._body);
@@ -44,4 +46,15 @@ this.errorMsg = JSON.parse(error._body);
 // this.wrong='yes';
 })
 }
+
+Tokensender()
+{
+    this.authenticateUserService.tokensend().subscribe((res) =>{
+  },(error:any)=>{
+  console.log(error);
+  })
+
+}
+
+
 }

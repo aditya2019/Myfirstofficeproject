@@ -81,12 +81,16 @@ test(song)
 {
   this.nextsong=song;
 
-  var msg = "<div class='container'><div class='row'><div class='col-md-5 col-sm-5'><img class='img-fluid' src='"+this.ImagePathget+this.nextsong.image_path+"'>" +"<p>thisi sno</p>"+
-            "<h4> this is my name </h4>"+
-            "<audio controls src='"+this.SongPathget+this.nextsong.song_path+"'></audio>" +
-          "<h3 style='color:blue;'>This is HTML</h3>";
+//   var msg = "<div class='container'><div class='row'><div class='col-md-5 col-sm-5'><img class='img-fluid' src='"+this.ImagePathget+this.nextsong.image_path+"'>" +"<p>thisi sno</p>"+
+//             "<h4> this is my name </h4>"+
+//             "<audio controls src='"+this.SongPathget+this.nextsong.song_path+"'></audio>" +
+//           "<h3 style='color:blue;'>This is HTML</h3>";
+// alertify.delay(0).maxLogItems(1).log(msg);
+
+var msg = "<div class='container-fluid'><div class='row'><div class='col-md-4 col-sm-4'><div class='card'><div class='row'><div class='col-md-4'><img class='img-fluid' src='"+this.ImagePathget+this.nextsong.image_path+"' alt='Card image cap'></div><div class='col-md-8'><div style='padding:20px;'><p><strong>Song Name-:&nbsp;</strong>Tere Naam</p><p ><strong>Singer Name-:&nbsp;</strong>7 ***</p></div></div></div><div class='row'><div class='col-md-4 col-sm-4 '><audio controls controlsList='nodownload' style='width:400px;background-color: #95B9C7;'><source style='background-color: #95B9C7;' src='https://www.w3schools.com/tags/horse.mp3' type='audio/mpeg'></audio></div></div></div></div></div></div>"
+
 alertify.delay(0).maxLogItems(1).log(msg);
-}
+ }
 // set current song
 playSong(song)
 {
