@@ -18,7 +18,7 @@ public errorMsg:any={};
 public showError : boolean = false;
 public wrong = '';
 public identify :any={};
-  private role:any;
+public role:any={};
 // service provide into login page
 constructor(private authenticateUserService : AuthenticateUserService,private router: Router) { }
 

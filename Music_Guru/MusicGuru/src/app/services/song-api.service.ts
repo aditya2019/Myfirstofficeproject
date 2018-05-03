@@ -9,6 +9,7 @@ export class SongApiService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
   constructor(private http:Http) { }
 // hit url to get all song from database
+
 getAllSong()
 {
   return this.http.get(AppConfig.getAll)

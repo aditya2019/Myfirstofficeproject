@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mymusic.Mymusic;
 import com.song.repository.Mymusicrepository;
+import com.songlist.Song;
 
 
 
@@ -27,10 +28,20 @@ public class MymusicController {
 	public MymusicController(Mymusicrepository mymusicrepository) {
         this.mymusicrepository = mymusicrepository;
     }
-	@GetMapping("/all")
-    public List<Mymusic> getAll() {
-        return mymusicrepository.findAll();
-    }
+	
+
+//	@RequestMapping(value = "/email", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+//    public List<Mymusic> getAll(@RequestBody String email) {
+//		
+//        return mymusicrepository.findAllByUserEmail(email);
+//    }
+	@RequestMapping(value = "/email", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Mymusic>> searchby(@RequestBody String email) {
+		System.out.print(email);
+		return ResponseEntity.ok().body(mymusicrepository.findAllByUserEmail(email));
+	}
+	
+	
 	@RequestMapping(value = "/postsong", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> create(@RequestBody Mymusic mymusic) {
 		 try {

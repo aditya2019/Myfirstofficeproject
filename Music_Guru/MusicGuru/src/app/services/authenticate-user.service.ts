@@ -7,39 +7,98 @@ import { AppConfig }from '../config/config.constant';
 
 
 @Injectable()
-export class AuthenticateUserService {
+export class AuthenticateUserService implements CanActivate {
 
  	private token:any;
-  private role:any;
  	public login : EventEmitter<any> = new EventEmitter();
-  public passToken: any;
-
+  public haveToken;
+  public role;
+  private valueget:any;
+  //header to login json
   private headers = new Headers({ 'Content-Type': 'application/json' });
+  // header to set token
   private headers2;
 
-  private valueget:any;
-
 	constructor(private http:Http,private router: Router) {
-
-//  this.passToken= new RequestOptions({headers :this.headers2});
+    if(localStorage.getItem('validtoken')!=null){
+       this.haveToken = JSON.parse(localStorage.getItem('validtoken'))['token'];
+    this.login.emit(true);
+  }else{
+    this.login.emit(false);
   }
+}
 
-  loginUser(Useraccess){
+// calling login controller to login the value
+loginUser(Useraccess){
  return this.http.post(AppConfig.gettokenUrl,Useraccess, {headers: this.headers})
  .map((response:Response) =>{
 
    this.token=response.json().token;
    this.role=response.json().Role;
-console.log("token -> "+this.token);
-console.log("role ->  "+this.role);
+   let userId=response.json().Email;
+   console.log("token -> "+this.token);
+   console.log("role ->  "+this.role);
+   console.log("email ->  "+userId);
    if (this.token) {
-     localStorage.setItem('validtoken', JSON.stringify({ token: this.token }));
-     return response;
+     // storing to token into localStorage
+     localStorage.setItem('validtoken', JSON.stringify({ token: this.token, email: userId }));
+     // emit login value to show indication
+    	this.login.emit(true);
+
    }
+   return response;
  },
  (error:any) =>{this.handleError(error)
    console.log(error);
  });
+}
+
+// to check user is logged in
+canActivate(){
+  if(!this.isLoggedIn()){
+    this.router.navigate(['login']);
+    return false;
+  }
+  if(this.isLoggedIn && this.role=='user'){
+   return true;
+  }
+  this.router.navigate(['login']);
+return false;
+}
+
+//to check user is logged in or not
+isLoggedIn(){
+  if(JSON.parse(localStorage.getItem('validtoken'))['token']){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+// to logout the user from website
+logout() {
+     // clear token remove user from local storage to log user out
+     this.token = null;
+     localStorage.removeItem('validtoken');
+     this.router.navigate['/login'];
+   }
+
+
+//submit
+tokensend(){
+  let token = JSON.parse(localStorage.getItem('validtoken'))['token'];
+    let headers2 = new Headers({ 'Authorization': token });
+ let options: RequestOptions = new RequestOptions({ headers: headers2});
+    return this.http
+    .get(AppConfig.sendtokenUrl, options )
+    .map(response=>response.json(),error=>{
+      error.json()});
+  }
+
+// Handle errors
+private handleError(error){
+	return Observable.throw(error);
 }
 
 // tokensend( ){
@@ -65,24 +124,5 @@ console.log("role ->  "+this.role);
 //         let headers = new Headers({ 'Authorization': token });
 //         return new RequestOptions({ headers: headers });
 //   }
-
-
-tokensend(){
-  let token = JSON.parse(localStorage.getItem('validtoken'))['token'];
-    let headers2 = new Headers({ 'Authorization': token });
- let options: RequestOptions = new RequestOptions({ headers: headers2});
-    return this.http
-    .get(AppConfig.sendtokenUrl, options )
-    .map(response=>response.json(),error=>{
-      error.json()});
-  }
-
-
-
-// Handle errors
-private handleError(error){
-	return Observable.throw(error);
-}
-
 
 }

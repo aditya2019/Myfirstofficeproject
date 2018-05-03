@@ -1,3 +1,9 @@
+<!-- alert message to login first -->
+<!-- modal open if user is not login  -->
+<div class="alert" *ngIf="meassge === 'yes'">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>You have to login </strong>
+</div>
 <!-- card code start -->
 <form class="col-md-6 mx-auto">
       <div class="input-group mt-5">
@@ -44,7 +50,8 @@
             <div *ngIf="flag === 'songlist'" class="buttonaline" >
 
               <!-- add to mymusic button -->
-              <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#mycount" (click)="addToMymusic(song)">Add</button>
+              <!-- <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#mycount" (click)="addToMymusic(song)">Add</button> -->
+                    <button type="button"  class="btn btn-primary"(click)="addToMymusic(song)">Add</button>
               <!-- get details button  -->
               <button  #modalBtn type="button" class="btn btn-primary btn-hide" (click)="setSong(song)" data-toggle="modal" data-target="#movieModal">
               Details

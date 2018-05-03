@@ -126,6 +126,8 @@ public class RegisterController {
 			response.put("token", token);
 			String role= authenticateUser.getRole();
 			response.put("Role",role);
+			String Useremail= authenticateUser.getEmailId();
+			response.put("Email",Useremail);
 			return ResponseEntity.ok().body(response);
 		} else {
 			return ResponseEntity.badRequest().build();

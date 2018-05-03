@@ -25,14 +25,12 @@ public songdelete : any={};
 public playsongvalue : any={};
 public s : any={};
 
+public meassge = '';
+
 public nextsong : any={};
 
-//public getsongname: any=[];
-// public convertedString : string;
-// public ss : String="";
-// public final : string="";
-// public print : string="";
-// public iit: string="";
+public useremail = 'aditya@gmail.com';
+
 
 public wrong = '';
 private showPlayer: boolean = true;
@@ -87,9 +85,9 @@ test(song)
 //           "<h3 style='color:blue;'>This is HTML</h3>";
 // alertify.delay(0).maxLogItems(1).log(msg);
 
-var msg = "<div class='container-fluid'><div class='row'><div class='col-md-4 col-sm-4'><div class='card'><div class='row'><div class='col-md-4'><img class='img-fluid' src='"+this.ImagePathget+this.nextsong.image_path+"' alt='Card image cap'></div><div class='col-md-8'><div style='padding:20px;'><p><strong>Song Name-:&nbsp;</strong>Tere Naam</p><p ><strong>Singer Name-:&nbsp;</strong>7 ***</p></div></div></div><div class='row'><div class='col-md-4 col-sm-4 '><audio controls controlsList='nodownload' style='width:400px;background-color: #95B9C7;'><source style='background-color: #95B9C7;' src='https://www.w3schools.com/tags/horse.mp3' type='audio/mpeg'></audio></div></div></div></div></div></div>"
-
-alertify.delay(0).maxLogItems(1).log(msg);
+// var msg = "<div class='container-fluid'><div class='row'><div class='col-md-4 col-sm-4'><div class='card'><div class='row'><div class='col-md-4'><img class='img-fluid' src='"+this.ImagePathget+this.nextsong.image_path+"' alt='Card image cap'></div><div class='col-md-8'><div style='padding:20px;'><p><strong>Song Name-:&nbsp;</strong>Tere Naam</p><p ><strong>Singer Name-:&nbsp;</strong>7 ***</p></div></div></div><div class='row'><div class='col-md-4 col-sm-4 '><audio controls controlsList='nodownload' style='width:400px;background-color: #95B9C7;'><source style='background-color: #95B9C7;' src='https://www.w3schools.com/tags/horse.mp3' type='audio/mpeg'></audio></div></div></div></div></div></div>"
+//
+// alertify.delay(0).maxLogItems(1).log(msg);
  }
 // set current song
 playSong(song)
@@ -125,13 +123,31 @@ playSong(song)
 // // audio.play();
 // }
 // calling updateMymusic method of service to add song into mymusic
+
+
 addToMymusic(song) {
-this.songApiService.updateMymusic(song).subscribe(data=>{
-console.log(data);
-this.getMymusic();
-},(error:any)=>{
-})
+  if(localStorage.getItem('validtoken')!=null){
+    console.log("if");
+    var concattedjson = JSON.parse(JSON.stringify(song));
+  let emailvalue = JSON.parse(localStorage.getItem('validtoken'))['email']
+    console.log("ye hai email ki value ---> "+emailvalue);
+    concattedjson['userEmail']=emailvalue;
+    this.songApiService.updateMymusic(concattedjson).subscribe(data=>{
+
+    //this.getMymusic();
+    },(error:any)=>{
+    })
+
+}else{
+  // console.log("else");
+  // alertify.success("you have to login ");
 }
+
+}
+
+
+
+
 // getting all song from mymusic database
 getMymusic()
 {

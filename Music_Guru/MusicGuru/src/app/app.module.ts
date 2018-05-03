@@ -23,6 +23,9 @@ import { ContactusComponent } from './components/contactus/contactus.component';
 import { CommingsoonComponent } from './components/shared/commingsoon/commingsoon.component';
 import { PlayerComponent } from './components/player/player.component';
 
+import { RoleGuard } from './services/role.guard';
+import {  AuthenticateUserService } from './services/authenticate-user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +54,7 @@ import { PlayerComponent } from './components/player/player.component';
     ReactiveFormsModule,
 
   ],
-  providers: [],
+  providers: [AuthenticateUserService,RoleGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

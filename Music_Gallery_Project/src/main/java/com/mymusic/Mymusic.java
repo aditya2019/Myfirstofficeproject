@@ -15,8 +15,6 @@ import com.songlist.Song;
 @Document
 public class Mymusic {
 	
-	 @Id
-	 private Integer id;
 	 private String songname;
 	 private Integer year;
 	 private String singername;
@@ -27,17 +25,18 @@ public class Mymusic {
 	 private String type;
 	 private String song_path;
 	 private String image_path;
+	 private String userEmail;
 	 
-	 Mymusic()
+	Mymusic()
 	 {
 		 
 	 }
 
 //  constructor to set data
-	public Mymusic(Integer id, String songname, Integer year, String singername, String musicdirector, String language,
+	public Mymusic(String userEmail, String songname, Integer year, String singername, String musicdirector, String language,
 			Integer rating, Integer duration, String type, String song_path, String image_path) {
 		super();
-		this.id=id;
+		this.userEmail=userEmail;
 		this.songname = songname;
 		this.year = year;
 		this.singername = singername;
@@ -49,15 +48,14 @@ public class Mymusic {
 		this.song_path = song_path;
 		this.image_path = image_path;
 	}
-  
+    
+	 public String getUserEmail() {
+			return userEmail;
+		}
 
-//	public String getId() {
-//		return id;
-//	}
-//
-////	public void setId(Integer id) {
-////		this.id = id;
-////	}
+		public void setUserEmail(String userEmail) {
+			this.userEmail = userEmail;
+		}
 	
 	public String getSongname() {
 		return songname;
