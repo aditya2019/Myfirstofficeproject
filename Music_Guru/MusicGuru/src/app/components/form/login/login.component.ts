@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-// import { SongApiService } from '../../../services/song-api.service';
 import { AuthenticateUserService } from '../../../services/authenticate-user.service';
 import { AppConfig }from '../../../config/config.constant';
 
@@ -27,34 +26,19 @@ ngOnInit() {
 // calling service loginUser method with value user email and password via( Useraccess)
 login(Useraccess){
 this.authenticateUserService.loginUser(Useraccess).subscribe((response)=>{
-
 this.role=response.json().Role;
-// console.log("role from ts ->  "+this.role);
-// in response if i am getting user - rout it on userselected list else rout it on admin page
-if(this.role==='user')
-{
-this.router.navigate(['/mymusic']);
-}
-else
+console.log("role finding here "+this.role);
+if(this.role==='admin')
 {
 this.router.navigate(['/admin']);
 }
-// this.Useraccess={};
+else
+{
+this.router.navigate(['/mymusic']);
+}
 },(error:any)=>{
 this.errorMsg = JSON.parse(error._body);
-// console.log(this.errorMsg.error);
-// this.wrong='yes';
 })
 }
-
-Tokensender()
-{
-    this.authenticateUserService.tokensend().subscribe((res) =>{
-  },(error:any)=>{
-  console.log(error);
-  })
-
-}
-
 
 }

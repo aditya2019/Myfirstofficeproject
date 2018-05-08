@@ -1,29 +1,33 @@
-<div class="container-fluid" >
-  <div class="row">
-    <div class="col-md-4 col-sm-4 ">
-      <div class="card">
-        <div class="row">
-         <div class="col-md-4">
-          <img class="img-fluid" src="http://192.168.1.129:8095/musicguru/get/VidyaVoxx.jpg" alt="Card image cap">
-         </div>
-        <div class="col-md-8">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>Paper Audio Player</title>
 
-          <!--  show song name-->
-          <div style="padding:20px;">
-          <p ><strong>Song Name-:&nbsp;</strong>Tere Naam</p>
-          <!--  show the singername name -->
-          <p ><strong>Singer Name-:&nbsp;</strong>7 ***</p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 col-sm-4 ">
-      <audio controls controlsList="nodownload" style="width:400px;background-color: #95B9C7;">
-       <source style="background-color: #95B9C7;" src="https://www.w3schools.com/tags/horse.mp3" type="audio/mpeg">
-      </audio>
-     </div>
-     </div>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+
+
+  </head>
+  <body>
+  <div id="header">
+    <h1>Paper Audio Player</h1>
+    <h3>Open source custom audio element built with Polymer 1+. Grab it on <a href="https://github.com/gorork/paper-audio-player" target="_blank">Github</a>!</h3>
+    <p><img src="https://img.shields.io/badge/version-1.1.0-brightgreen.svg"> <img src="https://travis-ci.org/gorork/paper-audio-player.svg?branch=master"></p>
   </div>
-</div>
-</div>
-</div>
+
+    <!-- row -->
+    <div class="row image row-vertical">
+      <app-player class="orange"
+                          src="http://nadikun.com/audio/suit-and-tie-oscar-wylde-remix.mp3"
+                          title="Justin Timberlake - Suit & Tie (Oscar Wylde Remix)"></app-player></div>
+    <!-- row -->
+
+  <!-- footer -->
+    <div id="footer">
+      <p>&copy; 2015-2016 "Paper Audio Player" created by <a href="http://nadikun.com" target="_blank">Nadi Dikun</a>. Open source Polymer element, grab it on <a
+          href="https://github.com/gorork/paper-audio-player" target="_blank">Github</a>.</p>
+      <p>All audio tracks belong to their respective owners and were shared on this webpage under Creative Common License.</p>
+    </div>
+  </body>
+</html>

@@ -22,8 +22,11 @@ this.getAllMySong();
 }
 // getting all song into mysong array type of object
 getAllMySong(){
-this.songApiService.getAllMySong().subscribe((res) =>{
+let email = JSON.parse(localStorage.getItem('validtoken'))['email']
+let name=email.split(".").shift();
+this.songApiService.getAllMySong(name).subscribe((res) =>{
 this.mysong = res;
+console.log("this is mymusic header value "+this.mysong);
 console.log(res+"Testing the data noewww");
 },(error:any)=>{
 console.log(error);

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticateUserService } from '../../../services/authenticate-user.service';
+
 
 @Component({
   selector: 'app-header',
@@ -7,15 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   public message = '';
-  constructor() { }
+  public isLogin :boolean = false;
+	@Input() login;
+  constructor(private authenticateUserService: AuthenticateUserService, private router: Router )
+  {
+    this.authenticateUserService.login.subscribe((login:any)=>{
+			this.isLogin=login;
+      console.log(this.isLogin);
+		});
+	}
 
   ngOnInit() {
+     this.isLogin=this.login;
   }
   // if message is yes then show login message
  loginmessage()
  {
   this.message='yes';
-  
+
  }
 
 

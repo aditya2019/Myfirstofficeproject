@@ -24,45 +24,20 @@ public currentsong : any=[];
 public songdelete : any={};
 public playsongvalue : any={};
 public s : any={};
-
 public meassge = '';
-
 public nextsong : any={};
-
-public useremail = 'aditya@gmail.com';
-
-
 public wrong = '';
 private showPlayer: boolean = true;
 constructor(
 private songApiService: SongApiService,
 private http:Http,
 private router: Router,
-// private ref: ChangeDetectorRef,
-
 ) { }
 
-// ngOnInit() {
-// }
-
-  // @Input() fileToPlay:string;
-
   ngOnInit(){
-    // if (this.playsongvalue != '') {
-    //   this.showPlayer = true;
-    // }
+
   }
 
-  // ngOnChanges(changes: {[propKey: string]: SimpleChange}){
-  //   if (changes['playsongvalue'] !== undefined) {
-  //
-  //
-  //    if(changes['playsongvalue'].previousValue !== changes['playsongvalue'].currentValue && changes['playsongvalue'].currentValue !== '') {
-  //     this.showPlayer = false;
-  //     setTimeout(() => this.showPlayer = true, 0);
-  //   }
-  // }
-  // }
 // serching the song
 search(name){
   this.songApiService.searchByName(name).subscribe((res)=>{
@@ -85,9 +60,42 @@ test(song)
 //           "<h3 style='color:blue;'>This is HTML</h3>";
 // alertify.delay(0).maxLogItems(1).log(msg);
 
-// var msg = "<div class='container-fluid'><div class='row'><div class='col-md-4 col-sm-4'><div class='card'><div class='row'><div class='col-md-4'><img class='img-fluid' src='"+this.ImagePathget+this.nextsong.image_path+"' alt='Card image cap'></div><div class='col-md-8'><div style='padding:20px;'><p><strong>Song Name-:&nbsp;</strong>Tere Naam</p><p ><strong>Singer Name-:&nbsp;</strong>7 ***</p></div></div></div><div class='row'><div class='col-md-4 col-sm-4 '><audio controls controlsList='nodownload' style='width:400px;background-color: #95B9C7;'><source style='background-color: #95B9C7;' src='https://www.w3schools.com/tags/horse.mp3' type='audio/mpeg'></audio></div></div></div></div></div></div>"
-//
-// alertify.delay(0).maxLogItems(1).log(msg);
+var msg = "<div class='row'><div class='col-md-5 col-sm-5'>"+
+          "<div class='card'><div class='row'><div class='col-md-6'>"+
+          "<img class='img-fluid' src='"+this.ImagePathget+this.nextsong.image_path+"' alt='Card image cap'>"+
+          "</div>"+
+          "<div class='col-md-8'>"+
+          "<div '>"+
+          "<p>"+
+          "<strong>Song Name-:&nbsp;</strong>Tere Naam</p>"+
+          "<p ><strong>Singer Name-:&nbsp;</strong>7 ***</p>"+
+          "</div>"+
+          "</div>"+
+          "</div>"+
+          "<div class='row'>"+
+          "<div class='col-md-4 col-sm-4 '>"+
+          "<audio controls controlsList='nodownload' >"+
+          "<source style='background-color: #95B9C7;' src='https://www.w3schools.com/tags/horse.mp3' type='audio/mpeg'>"+
+          "</audio>"+
+          "</div>"+
+          "</div>"+
+          "</div>"+
+          "</div>"+
+          "</div>";
+
+var msgp = "<div class='container'>" +
+            "<div class='row'>" +
+            "<div class='col-md-4'>" +
+          "<img style='width: 120px;' src='"+this.ImagePathget+this.nextsong.image_path+"'>" +
+           "</div>" +
+           "<div class='col-md-8'>" +
+          "<p> this is me  </p>"+
+          "<audio controls controlsList='nodownload' style='width: 200px; top-margin:20px;' controls src='"+this.SongPathget+this.nextsong.song_path+"'></audio>"+
+            "</div>"+
+            "</div>"+
+            "</div>";
+
+alertify.delay(0).maxLogItems(1).success(msgp);
  }
 // set current song
 playSong(song)
@@ -95,35 +103,7 @@ playSong(song)
     this.playsongvalue=song;
      // this.ref.detectChanges();
      console.log(this.playsongvalue.song_path);
-
- //  this.getsongname =JSON.parse(song)
- //  console.log("dekhna hai kya aya"+this.getsongname);
- //  this.playsongvalue=song;
- //  this.print = JSON.stringify(song.song_path);
- //  console.log("vauel is  "+JSON.stringify(song.song_path));
- // console.log("type of "+this.print);
- // this.iit=this.print.replace(/['"]+/g, '');
- // let kls=this.print.split(" ");
- // console.log("ye lo"+this.print.replace(/['"]+/g, ''));
-//this.final=this.SongPathget+this.iit;
-// let audio = new Audio();
-// audio.src = "final";
-// audio.load();
-// audio.play();
 }
-
-//
-// playnowji(song)
-// {
-//   this.getsongname=song.song_path;
-// //   console.log("dekhna hai kya aya"+this.getsongname);
-// //   let audio = new Audio();
-// // audio.src = this.SongPathget+this.getsongname;
-// // audio.load();
-// // audio.play();
-// }
-// calling updateMymusic method of service to add song into mymusic
-
 
 addToMymusic(song) {
   if(localStorage.getItem('validtoken')!=null){

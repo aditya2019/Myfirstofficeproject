@@ -36,11 +36,11 @@ getAllSong()
   		(error: any)=>this.handleError(error));
   }
 // url to get all song from mymusic user list
-  getAllMySong()
+  getAllMySong(name)
   {
-    return this.http.get(AppConfig.getAllMymusic)
-    .map(data => data.json(),
-      (error: any)=>this.handleError(error));
+    return this.http.get(AppConfig.getAllMymusic+name, {headers: this.headers})
+  	.map(data => data.json(),
+  		(error: any)=>this.handleError(error));
   }
 // url to delete song from mymusic collection
 

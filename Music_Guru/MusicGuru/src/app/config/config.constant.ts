@@ -14,7 +14,7 @@ export class AppConfig{
   // url of put user selected song into playlist
   public static mymusicdb="http://192.168.1.129:8095/mymusic/postsong";
   // url of getting all user selected song from database
-  public static getAllMymusic="http://192.168.1.129:8095/mymusic/all";
+  public static getAllMymusic="http://192.168.1.129:8095/mymusic/songs/mymusicvalue/email=";
   // url of delete song from playlist
   public static songdelete="http://192.168.1.129:8095/mymusic/";
   // url of download the song

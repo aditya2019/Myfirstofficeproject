@@ -1,6 +1,9 @@
 package com.song.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -35,12 +38,34 @@ public class MymusicController {
 //		
 //        return mymusicrepository.findAllByUserEmail(email);
 //    }
-	@RequestMapping(value = "/email", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Mymusic>> searchby(@RequestBody String email) {
-		System.out.print(email);
-		return ResponseEntity.ok().body(mymusicrepository.findAllByUserEmail(email));
-	}
+//	@RequestMapping(value = "/email", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+//	public ResponseEntity<List<Mymusic>> searchby(@RequestBody String email) {
+//		System.out.print(email);
+//		return ResponseEntity.ok().body(mymusicrepository.findAllByUserEmail(email));
+//	}
 	
+	 //to search venue by name in mongodb database
+			@RequestMapping(value = "/songs/mymusicvalue/email={email}", method = RequestMethod.GET)
+			public ResponseEntity<List<Mymusic>> searchbyEmail(@PathVariable String email) {
+				return ResponseEntity.ok().body(mymusicrepository.findByuserEmailLike(email));
+			}
+	
+//	@RequestMapping(value = "/mymusicdetails/{userId}", method = RequestMethod.GET)
+//	public ResponseEntity<Map<String, List<?>>> getDetails(@PathVariable String userId) {
+//		 Map<String, List<?>> response = new HashMap<String, List<?>>();
+//		List<Mymusic> selected = new ArrayList<Mymusic>();
+//		
+//		selected.addAll(mymusicrepository.finduserEmailLike(userId));
+//		for (int i = 0; i < selected.size(); i++) {
+//			Booking b = selected.get(i);
+//			b.setVenuedetails(venueRepository.findOneById(b.getVenueId()));
+//            
+//		}
+	//	response.put("bookingres", selected);
+	//	selected.addAll(selectedvenue);
+//		return ResponseEntity.accepted().body(response);
+//	}
+
 	
 	@RequestMapping(value = "/postsong", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> create(@RequestBody Mymusic mymusic) {
