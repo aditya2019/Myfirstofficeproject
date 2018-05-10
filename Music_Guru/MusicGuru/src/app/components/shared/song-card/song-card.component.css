@@ -527,11 +527,14 @@ and (min-width : 1224px)
 }
 
 /* ----- MODAL STYLE ----- */
-
+.textposition
+{
+  text-align: center;
+}
 
 	.modal-header {
 		border-bottom-color: black;
-		background-color: #85929E;
+
 	}
 
 .fade{

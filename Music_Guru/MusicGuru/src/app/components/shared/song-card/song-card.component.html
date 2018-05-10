@@ -1,11 +1,4 @@
 
-
-<div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-</div>
-
 <div class="alert" *ngIf="meassge === 'yes'">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
   <strong>You have to login </strong>
@@ -90,12 +83,13 @@
     </div>
   </div>
 </div>
+
 <!-- Modal to show song details -->
 <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="movieModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <p class="modal-title modifyheading" id="movieModalLabel"><strong>Song Details</strong></p>
+      <div class="modal-header textposition" >
+        <p class="modal-title modifyheading" id="movieModalLabel"><strong >Song Details</strong></p>
       </div>
       <div class="container">
         <div class="row">
@@ -120,10 +114,6 @@
               <p class="card-text heading"><strong>Duration:&nbsp;</strong>{{currentsong.duration}}</p>
               <!--  show the song type -->
               <p class="card-text heading"><strong>Type:&nbsp;</strong>{{currentsong.type}}</p>
-              <audio controls controlsList="nodownload">
-               <source [attr.src]="SongPathget+currentsong.song_path" type="audio/mpeg">
-.              </audio>
-
             </div>
           </div>
         </div>

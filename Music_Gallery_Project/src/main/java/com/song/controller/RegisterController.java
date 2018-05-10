@@ -45,23 +45,23 @@ public class RegisterController {
 		this.registerrepository = registerrepository;
 	}
 	
-// to save data of user registration
-//	@RequestMapping(value = "/Userdata", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-//	public ResponseEntity<Void> create(@Valid @RequestBody Register register , BindingResult bindingResult) 
-//	{
-//		if (bindingResult.hasErrors()) {
-//			System.out.println("somethis is wrong");
-//			bindingResult
-//			.getFieldErrors()
-//			.stream()
-//			.forEach(f -> System.out.println(f.getField() + ": " + f.getDefaultMessage()));
-//		}else {
-//			registerrepository.save(register);
-//			//response.put("ok", "Registered Succesfuly");
-//			return ResponseEntity.noContent().build();
-//		}
-//		return ResponseEntity.accepted().build();
-//	}
+ //to save data of user registration
+	@RequestMapping(value = "/Userdata", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void> create(@Valid @RequestBody Register register , BindingResult bindingResult) 
+	{
+		if (bindingResult.hasErrors()) {
+			System.out.println("somethis is wrong");
+			bindingResult
+			.getFieldErrors()
+			.stream()
+			.forEach(f -> System.out.println(f.getField() + ": " + f.getDefaultMessage()));
+		}else {
+			registerrepository.save(register);
+			//response.put("ok", "Registered Succesfuly");
+			return ResponseEntity.noContent().build();
+		}
+		return ResponseEntity.accepted().build();
+	}
 	
 //// admin and user varification 
 //	@RequestMapping(value = "/verify", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -91,7 +91,7 @@ public class RegisterController {
 //			}
 //		}
 //	}
-	
+//	
 	
 	@RequestMapping(value = "/role", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, String>> add() {
@@ -130,7 +130,7 @@ public class RegisterController {
 			response.put("Email",Useremail);
 			return ResponseEntity.ok().body(response);
 		} else {
-			return ResponseEntity.badRequest().build();
+		return ResponseEntity.badRequest().build();
 		}
 	}
 

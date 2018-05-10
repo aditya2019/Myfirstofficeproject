@@ -54,42 +54,13 @@ test(song)
 {
   this.nextsong=song;
 
-//   var msg = "<div class='container'><div class='row'><div class='col-md-5 col-sm-5'><img class='img-fluid' src='"+this.ImagePathget+this.nextsong.image_path+"'>" +"<p>thisi sno</p>"+
-//             "<h4> this is my name </h4>"+
-//             "<audio controls src='"+this.SongPathget+this.nextsong.song_path+"'></audio>" +
-//           "<h3 style='color:blue;'>This is HTML</h3>";
-// alertify.delay(0).maxLogItems(1).log(msg);
-
-var msg = "<div class='row'><div class='col-md-5 col-sm-5'>"+
-          "<div class='card'><div class='row'><div class='col-md-6'>"+
-          "<img class='img-fluid' src='"+this.ImagePathget+this.nextsong.image_path+"' alt='Card image cap'>"+
-          "</div>"+
-          "<div class='col-md-8'>"+
-          "<div '>"+
-          "<p>"+
-          "<strong>Song Name-:&nbsp;</strong>Tere Naam</p>"+
-          "<p ><strong>Singer Name-:&nbsp;</strong>7 ***</p>"+
-          "</div>"+
-          "</div>"+
-          "</div>"+
-          "<div class='row'>"+
-          "<div class='col-md-4 col-sm-4 '>"+
-          "<audio controls controlsList='nodownload' >"+
-          "<source style='background-color: #95B9C7;' src='https://www.w3schools.com/tags/horse.mp3' type='audio/mpeg'>"+
-          "</audio>"+
-          "</div>"+
-          "</div>"+
-          "</div>"+
-          "</div>"+
-          "</div>";
-
 var msgp = "<div class='container'>" +
             "<div class='row'>" +
             "<div class='col-md-4'>" +
           "<img style='width: 120px;' src='"+this.ImagePathget+this.nextsong.image_path+"'>" +
            "</div>" +
            "<div class='col-md-8'>" +
-          "<p> this is me  </p>"+
+          "<p>"+this.nextsong.songname+"</p>"+
           "<audio controls controlsList='nodownload' style='width: 200px; top-margin:20px;' controls src='"+this.SongPathget+this.nextsong.song_path+"'></audio>"+
             "</div>"+
             "</div>"+
@@ -107,20 +78,19 @@ playSong(song)
 
 addToMymusic(song) {
   if(localStorage.getItem('validtoken')!=null){
-    console.log("if");
     var concattedjson = JSON.parse(JSON.stringify(song));
   let emailvalue = JSON.parse(localStorage.getItem('validtoken'))['email']
-    console.log("ye hai email ki value ---> "+emailvalue);
     concattedjson['userEmail']=emailvalue;
     this.songApiService.updateMymusic(concattedjson).subscribe(data=>{
-
-    //this.getMymusic();
+    this.getMymusic();
     },(error:any)=>{
     })
 
 }else{
-  // console.log("else");
-  // alertify.success("you have to login ");
+   // confirm dialog
+alertify.confirm("You have to login first", function () {
+    // user clicked "ok"
+});
 }
 
 }
@@ -133,6 +103,8 @@ getMymusic()
 {
 this.songApiService.getMymusic().subscribe((res)=>{
 this.count=res;
+alertify.confirm("You have add ["+this.count.length+"] songs", function () {
+});
 },(error:any)=>{
 })
 }

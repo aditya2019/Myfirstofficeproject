@@ -1,26 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { SongApiService } from '../../../services/song-api.service';
-import alertify from 'alertify.js';
+import { Router } from "@angular/router";
+import { AuthenticateUserService } from '../../../services/authenticate-user.service';
+import { AppConfig }from '../../../config/config.constant';
+
 @Component({
 selector: 'app-registration',
 templateUrl: './registration.component.html',
 styleUrls: ['./registration.component.css'],
-providers: [SongApiService ]
+providers: [ AuthenticateUserService ]
 })
 
 export class RegistrationComponent implements OnInit {
 public Userobj : any={};
 public correct = '';
 // service provide into registration form
-constructor(private songApiService: SongApiService) { }
+constructor(private authenticateUserService : AuthenticateUserService,private router: Router) { }
 ngOnInit() {
-   alertify.success("Alertify is working!");
+
 }
 // calling userdetails method of service with user details via ( Userobj)
 userdetails(Userobj) {
-this.songApiService.userdetails(Userobj).subscribe((res) =>{
+this.authenticateUserService.userdetails(Userobj).subscribe((res) =>{
 this.Userobj={};
 this.correct='yes';
+
 },(error:any)=>{
 
 })

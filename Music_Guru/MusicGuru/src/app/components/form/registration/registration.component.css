@@ -13,7 +13,7 @@
 /*  modification on input fields*/
 .closebtn {
     margin-left: 15px;
-    color: white;
+    background-color:white;
     font-weight: bold;
     float: right;
     font-size: 22px;
@@ -23,5 +23,6 @@
 }
 
 .closebtn:hover {
-    color: black;
+    
+    background-color: white;
 }

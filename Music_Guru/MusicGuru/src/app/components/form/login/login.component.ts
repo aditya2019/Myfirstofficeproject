@@ -27,7 +27,6 @@ ngOnInit() {
 login(Useraccess){
 this.authenticateUserService.loginUser(Useraccess).subscribe((response)=>{
 this.role=response.json().Role;
-console.log("role finding here "+this.role);
 if(this.role==='admin')
 {
 this.router.navigate(['/admin']);
@@ -38,6 +37,7 @@ this.router.navigate(['/mymusic']);
 }
 },(error:any)=>{
 this.errorMsg = JSON.parse(error._body);
+this.wrong="yes";
 })
 }
 

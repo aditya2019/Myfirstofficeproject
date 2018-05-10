@@ -12,7 +12,7 @@ export class AuthenticateUserService implements CanActivate {
  	private token:any;
  	public login : EventEmitter<any> = new EventEmitter();
 
-  public role="user";
+  public role="admin";
   public headerToken;
   public name;
   private headers;
@@ -84,23 +84,22 @@ canActivate(){
   return false;
 }
 
-// getRole(){
-// 	return this.http.get((AppConfig.getRoleUrl))
-// 	.map((data)=>{
-// 		data.json();
-// 	},
-// 	(error:any) =>this.handleError(error));
-// }
 
-// to logout the user from website
 logout() {
-     // clear token remove user from local storage to log user out
+    // clear token remove user from local storage to log user out
      this.login.emit(false);
      this.token = null;
      localStorage.removeItem('validtoken');
-     this.router.navigate(['/','login']);
+     this.router.navigate(['/','toprated']);
+     console.log("logoout successfully");
    }
 
+userdetails(Userobj)
+   {
+    return this.http.post(AppConfig.registerdata , Userobj ,{headers: this.headers})
+    .map(data => data.json(),
+      (error: any)=>this.handleError(error));
+   }
 
 //submit
 // tokensend(){

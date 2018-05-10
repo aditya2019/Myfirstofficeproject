@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.mymusic.Mymusic;
 import com.song.repository.Mymusicrepository;
 import com.songlist.Song;
@@ -31,41 +30,17 @@ public class MymusicController {
 	public MymusicController(Mymusicrepository mymusicrepository) {
         this.mymusicrepository = mymusicrepository;
     }
-	
-
-//	@RequestMapping(value = "/email", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-//    public List<Mymusic> getAll(@RequestBody String email) {
-//		
-//        return mymusicrepository.findAllByUserEmail(email);
-//    }
-//	@RequestMapping(value = "/email", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-//	public ResponseEntity<List<Mymusic>> searchby(@RequestBody String email) {
-//		System.out.print(email);
-//		return ResponseEntity.ok().body(mymusicrepository.findAllByUserEmail(email));
-//	}
-	
+	// getting all song 
+	@GetMapping("/all")
+    public List<Mymusic> getAll() {
+        return mymusicrepository.findAll();
+    }
 	 //to search venue by name in mongodb database
 			@RequestMapping(value = "/songs/mymusicvalue/email={email}", method = RequestMethod.GET)
 			public ResponseEntity<List<Mymusic>> searchbyEmail(@PathVariable String email) {
 				return ResponseEntity.ok().body(mymusicrepository.findByuserEmailLike(email));
 			}
 	
-//	@RequestMapping(value = "/mymusicdetails/{userId}", method = RequestMethod.GET)
-//	public ResponseEntity<Map<String, List<?>>> getDetails(@PathVariable String userId) {
-//		 Map<String, List<?>> response = new HashMap<String, List<?>>();
-//		List<Mymusic> selected = new ArrayList<Mymusic>();
-//		
-//		selected.addAll(mymusicrepository.finduserEmailLike(userId));
-//		for (int i = 0; i < selected.size(); i++) {
-//			Booking b = selected.get(i);
-//			b.setVenuedetails(venueRepository.findOneById(b.getVenueId()));
-//            
-//		}
-	//	response.put("bookingres", selected);
-	//	selected.addAll(selectedvenue);
-//		return ResponseEntity.accepted().body(response);
-//	}
-
 	
 	@RequestMapping(value = "/postsong", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> create(@RequestBody Mymusic mymusic) {

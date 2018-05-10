@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   public message = '';
   public isLogin :boolean = false;
 	@Input() login;
+  public flag: string;
   constructor(private authenticateUserService: AuthenticateUserService, private router: Router )
   {
     this.authenticateUserService.login.subscribe((login:any)=>{
@@ -28,6 +29,24 @@ export class HeaderComponent implements OnInit {
  {
   this.message='yes';
 
+ }
+ logoutshow()
+ {
+ //   if(localStorage.getItem('validtoken')!=null){
+ //   this.flag='logout';
+ // }else
+ // {
+ //   this.flag='no';
+ // }
+     this.flag='logout';
+ }
+
+
+ tokenremove()
+ {
+
+   this.authenticateUserService.logout();
+   this.flag='not'
  }
 
 
