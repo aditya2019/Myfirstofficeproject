@@ -12,7 +12,7 @@ export class AuthenticateUserService implements CanActivate {
  	private token:any;
  	public login : EventEmitter<any> = new EventEmitter();
 
-  public role="admin";
+  public role="user";
   public headerToken;
   public name;
   private headers;

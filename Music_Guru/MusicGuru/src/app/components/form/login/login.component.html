@@ -1,10 +1,8 @@
-<!--      alert box for show error       -->
-<div class="alert" *ngIf="wrong === 'yes'">
+
+<!-- <div class="alert" *ngIf="wrong === 'yes'">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
   <strong>Danger!</strong>  {{this.errorMsg.error}}
 </div>
-<!--   Login page        -->
-<!--   This login page for both admin login as well user login-->
 <div class="container w-50 my-4 accesss logincolor">
   <form>
     <div class="form-group">
@@ -16,8 +14,48 @@
       <input type="password" [(ngModel)]="Useraccess.password" class="form-control" id="loginpassword" name="password">
     </div>
     <button type="submit" class="btn btn-primary" (click)="login(Useraccess)">Login</button>
-    <!-- user not register click on register - rount on register page -->
     <button type="submit" class="btn btn-primary" routerLink="/register">Register</button>
-      <!-- <button type="submit" class="btn btn-primary" (click)="Tokensender()">Token</button> -->
   </form>
+  loginDetails=Useraccess
+</div> -->
+
+
+<div class="container">
+ <div class="row">
+   <div class="col-md-4 col-sm-6 mx-auto">
+     <form #myForm="ngForm" class="contact" (ngSubmit)="login(Useraccess)">
+       <h3>Login</h3>
+       <fieldset>
+         <input placeholder="Enter your EmailId" [(ngModel)]="Useraccess.emailId" type="email" name="emailId" id="emailId" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required  #emailId='ngModel'>
+         <div *ngIf="emailId.invalid" class="text-danger">
+           <div *ngIf="emailId.errors?.required && emailId.touched">
+             EmailId is required
+           </div>
+           <div *ngIf="emailId.errors?.pattern && emailId.touched">
+             Enter valid EmailId
+           </div>
+           <div *ngIf="emailId.untouched && password.touched">
+             EmailId is required
+           </div>
+         </div>
+       </fieldset>
+       <fieldset>
+         <input placeholder="Enter your Password" type="password" [(ngModel)]="Useraccess.password" name="password" id="pwd"  minlength="6" maxlength="12"  required  #password='ngModel'>
+         <div *ngIf="password.invalid" class="text-danger" >
+           <div *ngIf="password.errors?.required && password.touched">
+             Password is required.
+           </div>
+           <div *ngIf="password.errors?.minlength && password.touched">
+             Password should be of atleast 6 digits.
+           </div>
+           <div *ngIf="password.errors?.maxlength && password.touched">
+             Password should be of max 12 digits.
+           </div>
+         </div>
+       </fieldset>
+       <button  [disabled]="!myForm.form.valid" [class.disabled]="!myForm.form.valid" name="submit" type="submit" class="btn btn-default" id="submit">Submit</button>
+       <span>No account plz SingUp!&nbsp;<a routerLink="/register" class="text-primary">SignUp Here</a></span>
+     </form>
+   </div>
+ </div>
 </div>

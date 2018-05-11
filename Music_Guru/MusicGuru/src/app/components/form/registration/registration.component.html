@@ -2,23 +2,23 @@
 <!-- <div class="alert alert-success" *ngIf="correct === 'yes'" onclick="this.parentElement.style.display='none';">
   <strong>Yupp!</strong>  Successfully Register
 </div> -->
-<div class="alert alert-success alert-dismissible" *ngIf="correct === 'yes'">
+<!-- <div class="alert alert-success alert-dismissible" *ngIf="correct === 'yes'">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Yupp!</strong> Successfully Register
-</div>
+</div> -->
 <!-- <div  >
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
   <strong >Yupp!</strong> Successfully Register
 </div> -->
 <!--  Registration Form  -->
-<div class ="container  w-50 my-4 accesss backcolor">
+<!-- <div class ="container  w-50 my-4 accesss backcolor">
   <div class ="row">
     <div class ="col-md-3 ">
     </div>
     <div class ="col-md-6 ">
       <form>
         <!-- getting all Registration data into object (Userobj) -->
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="exampleInputName">Name</label>
           <input type="email" class="form-control" id="exampleInputEmail1" name="name" [(ngModel)]="Userobj.userName" aria-describedby="emailHelp" >
         </div>
@@ -31,8 +31,53 @@
           <input type="password" class="form-control" id="exampleInputPassword2" name="password" [(ngModel)]="Userobj.password">
         </div>
         <!-- calling ts userdetails method with object Userobj  -->
-        <button type="submit" class="btn btn-primary" (click)="userdetails(Userobj)" >Submit</button>
+        <!-- <button type="submit" class="btn btn-primary" (click)="userdetails(Userobj)" >Submit</button>
         <button type="submit" class="btn btn-primary" routerLink="/login">Login</button>
       </form>
     </div>
+  </div> -->
+
+
+
+  <div class="container mx-auto">
+  <div class="row">
+    <div class="col-md-4 col-sm-6 mx-auto">
+      <form class="contact" [formGroup]="form">
+        <h3>Register</h3>
+        <h4>* All fields are Mandatory</h4>
+        <fieldset>
+          <input placeholder="Enter your Name"  type="text" formControlName="userName" id="userName"  name="usernName">
+          <div class="text-danger">
+            <p *ngIf="form.get('userName').errors?.required && form.get('userName').touched">Please Enter your Name</p>
+            <p *ngIf="form.get('userName').errors?.minlength && form.get('userName').touched">Please Enter Name of atleast 3 digits</p>
+            <p *ngIf="form.get('userName').errors?.maxlength && form.get('userNameame').touched">Please Enter name of maximum 25 digits</p>
+          </div>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Enter your EmailId" type="email" formControlName="emailId" name="emailId" id="emailId">
+          <div class="text-danger">
+            <p *ngIf="form.get('emailId').errors?.required && form.get('userName').touched">Please Enter your Email</p>
+            <p *ngIf="form.get('emailId').errors?.pattern && form.get('emailId').touched">Please Enter your valid Email</p>
+          </div>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Enter your Password" type="password"
+          formControlName="password" name="password" id="pwd">
+          <div class="text-danger">
+            <p *ngIf="form.get('password').errors?.required && form.get('password').touched">Please Enter your password</p>
+            <p *ngIf="form.get('password').errors?.minlength && form.get('password').touched">Please Enter password of atleast 6 digits</p>
+            <p *ngIf="form.get('password').errors?.maxlength && form.get('password').touched">Please Enter password of maximum 10 digits</p>
+          </div>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Enter confirm Password" type="password"
+          id="cpwd" name="confirmpassword" (keyup)="check(myInput.value)" #myInput>
+          <div><p *ngIf="checkPassword">Password and Confirm password did not match</p></div>
+        </fieldset>
+        <button name="submit" class="btn btn-default"  type="submit"  [class.disabled]="form.invalid" [disabled]="form.invalid"  id="submit" (click)="onSubmit(form)">Submit</button>
+        <!-- <span>Already have an account!&nbsp;<a routerLink="/login">Login Here</a></span> -->
+        <span>Already have an account!&nbsp;<a routerLink="/login" class="text-primary">Login Here</a></span>
+      </form>
+    </div>
   </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SongApiService } from '../../services/song-api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-feedback',
@@ -19,12 +20,19 @@ export class FeedbackComponent implements OnInit {
 
   ngOnInit() {
   }
+
   //  calling feedbackSubmit method of service with user data (feedbackData)
   feedbackSubmit(feedbackData){
     console.log(feedbackData);
     this.songApiService.feedbackSubmit(feedbackData).subscribe((res)=>{
       this.response=res;
       this.correct='yes'
+      Swal({
+        text: "Thanks for feedback",
+        showConfirmButton: false,
+        type: 'success',
+        timer:2000,
+      })
     },(error:any)=>{
       this.errorMsg = JSON.parse(error._body);
       console.log(this.errorMsg.error);

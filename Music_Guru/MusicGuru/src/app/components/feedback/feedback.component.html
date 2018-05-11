@@ -3,29 +3,91 @@
   <div class="contact-section">
     <div class="container">
       <h2>Feedback</h2>
-      <!-- message after user given feedback -->
-      <div class="alert" *ngIf="correct === 'yes'">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';"></span>
-        <strong>Thanks ! for your feedback</strong>
-      </div>
       <div class="row">
         <div class="col-md-8 mx-auto">
-          <form class="form-horizontal">
-            <label for="exampleInputText">Feedback</label>
+
+          <form class="form-horizontal" #contForm="ngForm" class="contact" (ngSubmit)="feedbackSubmit(feedbackData)">
+
+
+            <div class="form-group">
+              <!-- taking user details into userData Object -->
+              <label for="exampleInputName">Name</label>
+
+              <!-- <input type="email" class="form-control" id="exampleInputEmail1" name="name" [(ngModel)]="userData.name" aria-describedby="emailHelp" > -->
+
+              <input class="form-control" [(ngModel)]="feedbackData.name" type="name" name="name" id="exampleInputPassword2" pattern="[a-zA-Z\s]+" required  #name='ngModel'>
+              <div *ngIf="name.invalid" class="text-danger">
+                <div *ngIf="name.errors?.required && name.touched">
+                  Name is required
+                </div>
+                <div *ngIf="name.errors?.pattern && name.touched">
+                  Enter valid Name
+                </div>
+                <div *ngIf="name.untouched && name.touched">
+                  Name is required
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+
+              <input class="form-control" [(ngModel)]="feedbackData.email" type="email" name="email" id="exampleInputPassword1" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required  #email='ngModel'>
+              <div *ngIf="email.invalid" class="text-danger">
+                <div *ngIf="email.errors?.required && email.touched">
+                  EmailId is required
+                </div>
+                <div *ngIf="email.errors?.pattern && email.touched">
+                  Enter valid EmailId
+                </div>
+                <div *ngIf="email.untouched && email.touched">
+                  EmailId is required
+                </div>
+              </div>
+
+              <!-- <input class="form-control"   name="email"  [(ngModel)]="userData.email"> -->
+            </div>
+
+
+
+            <label for="exampleInputText">Feedback For</label>
             <br>
             <!-- selector given option for rating -->
             <select class="selectpicker" class="btn btn-default" name="rating" [(ngModel)]="feedbackData.rating">
-              <option>Good</option>
-              <option>Verygood</option>
-              <option>Bad</option>
+              <option>User Experience</option>
+              <option>Design</option>
+              <option>Music</option>
+              <option>Player</option>
+              <option>Any Other feedback</option>
             </select>
             <hr>
             <!-- user message about website -->
             <div class="form-group ">
               <label for="exampleInputText" >Your Message</label>
-              <textarea  class="form-control" name="message" [(ngModel)]="feedbackData.message"></textarea>
+
+              <textarea  class="form-control" name="message" type="message"  id="exampleInputPassword4" [(ngModel)]="feedbackData.message" pattern="[a-zA-Z\s]+" required  #message='ngModel'></textarea>
+
+              <!-- <input class="form-control" [(ngModel)]="userData.subject" type="subject" name="subject" id="exampleInputPassword3" pattern="[a-zA-Z0-9\s]+" required  #subject='ngModel'> -->
+              <div *ngIf="message.invalid" class="text-danger">
+                <div *ngIf="message.errors?.required && message.touched">
+                  Message is required
+                </div>
+                <div *ngIf="message.errors?.pattern && message.touched">
+                  Enter valid Message
+                </div>
+                <div *ngIf="message.untouched && message.touched">
+                  Message is required
+                </div>
+              </div>
+
             </div>
-            <button type="submit" class="btn btn-default" (click)="feedbackSubmit(feedbackData)">Send Message</button>
+
+
+            <button   [disabled]="!contForm.form.valid"  [class.disabled]="!contForm.form.valid" name="submit" type="submit" class="btn btn-default" id="submit">Submit</button>
+
           </form>
         </div>
       </div>

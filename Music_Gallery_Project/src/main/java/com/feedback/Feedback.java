@@ -4,19 +4,39 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Feedback { 
-	
+	public String name;
+	private String email;
 	public String rating;
 	public String message;
 	
+	public Feedback(String name, String email,String rating, String message)
+	{   
+		this.name=name;
+		this.email=email;
+		this.rating = rating;
+		this.message =message;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public Feedback() {
     	super();
     }
 	
-	public Feedback(String rating, String message)
-	{
-		this.rating = rating;
-		this.message =message;
-	}
 	public String getRating() {
 		return rating;
 	}
